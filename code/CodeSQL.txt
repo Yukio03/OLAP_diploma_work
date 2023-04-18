@@ -1,0 +1,66 @@
+CREATE DATABASE BasisProDW
+go
+ALTER DATABASE BasisProDw set recovery simple
+go
+ALTER DATABASE BasisProDw set auto_shrink off
+go
+ALTER DATABASE BasisProDw set auto_create_statistics on
+go
+ALTER DATABASE BasisProDw set auto_update_statistics on
+go
+
+CREATE TABLE dim_date(
+	id INT PRIMARY KEY NOT NULL,
+	the_date DATE NOT NULL,
+	day_of_week INT NOT NULL,
+	day_of_month INT NOT NULL,
+	day_of_year INT NOT NULL,
+	day_name VARCHAR(20) NOT NULL,
+	month_of_year INT NOT NULL,
+	month_name VARCHAR(20) NOT NULL,
+	weekend INT NOT NULL,
+	quarter INT NOT NULL,
+	year INT NOT NULL
+
+)
+
+CREATE TABLE dim_employee
+(
+	id INT PRIMARY KEY,
+	surname CHARACTER VARYING(100) NOT NULL,
+	name CHARACTER VARYING(100) NOT NULL,
+	patronymic CHARACTER VARYING(100) NOT NULL,
+	birth_date DATE NOT NULL,
+	phone CHARACTER (11) NOT NULL,
+	email CHARACTER VARYING (100) NOT NULL,
+	sex VARCHAR(1) NOT NULL,
+	hire_date DATE NOT NULL
+);
+
+
+CREATE TABLE dim_customer ( 
+	
+	id INT PRIMARY KEY,   
+	title VARCHAR(100) NOT NULL,   
+	name VARCHAR(100) NOT NULL,   
+	email VARCHAR(100) NOT NULL,   
+	phone CHARACTER (11) NOT NULL,
+	country VARCHAR(30) NOT NULL,   
+	city VARCHAR(30) NOT NULL,
+	is_company INT NOT NULL
+	
+);
+
+CREATE TABLE fact_sales ( 
+	
+	id INT PRIMARY KEY,        
+	customer_id INT NOT NULL,   
+	employee_id INT NOT NULL,
+	product_id INT NOT NULL,
+	date_id INT NOT NULL,
+	quantity INT NOT NULL,
+	discount INT,
+	sales_amount NUMERIC NOT NULL,
+	unit_price INT NOT NULL
+
+);
