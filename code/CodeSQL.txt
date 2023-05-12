@@ -51,6 +51,16 @@ CREATE TABLE dim_customer (
 	
 );
 
+CREATE TABLE dim_product ( 
+	
+	id SERIAL PRIMARY KEY,     
+	name VARCHAR(100) NOT NULL,   
+	category VARCHAR(100) NOT NULL,   
+	description TEXT NOT NULL,
+	unit_price NUMERIC NOT NULL
+	
+);
+
 CREATE TABLE fact_sales ( 
 	
 	id INT PRIMARY KEY,        
@@ -64,3 +74,8 @@ CREATE TABLE fact_sales (
 	unit_price INT NOT NULL
 
 );
+
+ALTER TABLE fact_sales ADD CONSTRAINT FK_date FOREIGN KEY (date_id) references dim_date(id) 
+ALTER TABLE fact_sales ADD CONSTRAINT FK_customer FOREIGN KEY (customer_id) references dim_customer(id) 
+ALTER TABLE fact_sales ADD CONSTRAINT FK_product FOREIGN KEY (product_id) references dim_product(id) 
+ALTER TABLE fact_sales ADD CONSTRAINT FK_employee FOREIGN KEY (employee_id) references dim_employee(id) 
