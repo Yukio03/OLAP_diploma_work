@@ -53,7 +53,7 @@ CREATE TABLE dim_customer (
 
 CREATE TABLE dim_product ( 
 	
-	id SERIAL PRIMARY KEY,     
+	id INT PRIMARY KEY,     
 	name VARCHAR(100) NOT NULL,   
 	category VARCHAR(100) NOT NULL,   
 	description TEXT NOT NULL,
