@@ -9,6 +9,7 @@
   <li>ExcelToMSSQL.ipynb - файл с исходным кодом ETL-процесса</li>
   <li>CodeSQL.txt - файл с кодом создания БД и таблиц в MSSQL
   </ul>
+  <li>report/ - содержит отчеты SSRS из OLAP куба</li>
 </ul>
 
 ____
