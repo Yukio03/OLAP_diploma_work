@@ -53,10 +53,17 @@ CREATE TABLE dim_customer (
 
 CREATE TABLE dim_product ( 
 	
+<<<<<<< HEAD
 	id SERIAL PRIMARY KEY,     
 	name VARCHAR(100) NOT NULL,   
 	category VARCHAR(100) NOT NULL,   
 	description VARCHAR(8000) NOT NULL,
+=======
+	id INT PRIMARY KEY,     
+	name VARCHAR(100) NOT NULL,   
+	category VARCHAR(100) NOT NULL,   
+	description TEXT NOT NULL,
+>>>>>>> ee9417da1c524f46c3b6dbdabf8539c866a05708
 	unit_price NUMERIC NOT NULL
 	
 );
